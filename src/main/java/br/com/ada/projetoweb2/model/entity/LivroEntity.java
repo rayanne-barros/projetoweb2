@@ -1,6 +1,7 @@
 package br.com.ada.projetoweb2.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -18,7 +19,8 @@ public class LivroEntity {
     private EditoraEntity editora;
     @Column(name = "nome", nullable = false)
     private String nome;
-    @Column(name = "isbn", nullable = false, unique = true, length = 13)
+    @Column(name = "isbn", nullable = false, unique = true)
+    @Size(max = 13, message = "O 'isbn' do 'livro' só pode ter no máximo 13 caracteres")
     private String isbn;
 
 }

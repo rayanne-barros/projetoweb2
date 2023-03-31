@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class CategoriaDTO {
     private Long id;
-    @Size(max=100,message="Tamanho do nome ácima do permitido")
-    @NotBlank(message="Nome deve conter algum valor")
+    @Size(max=100,message="Tamanho do 'nome' acima do permitido (100 caracteres)")
+    @NotBlank(message="'nome' deve conter algum valor")
     private String nome;
 }

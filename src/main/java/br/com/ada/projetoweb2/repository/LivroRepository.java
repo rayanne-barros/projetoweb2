@@ -17,11 +17,10 @@ public interface LivroRepository extends JpaRepository<LivroEntity, Long> {
 
     List<LivroEntity> findByEditora(EditoraEntity editora);
 
-//    @Query("SELECT p FROM ProdutoEntity p "
-//            + "WHERE UPPER(p.nome) LIKE CONCAT('%',UPPER(:nome),'%') "
-//            + "OR (p.preco BETWEEN :fromPreco AND :toPreco)")
 
-    @Query("SELECT l FROM LivroEntity l WHERE UPPER(l.nome) = :nome OR UPPER(l.isbn) = :isbn")
+    @Query("SELECT l FROM LivroEntity l "
+            + "WHERE UPPER(l.nome) LIKE CONCAT('%',UPPER(:nome),'%') "
+            + "OR (l.isbn = :isbn) ")
     List<LivroEntity> findByNomeOrIsbn(@Param("nome") String nome, @Param("isbn")String isbn);
 
 }
